@@ -1,0 +1,7 @@
+1. approve: give permission to an address to transfer a token. Only token owner can give that permission. Permission removed after the token is transferred once.
+2. safeTransferFrom(onlyTokenOwner): safeley transfer token and change the ownership to the new owner. (if the receipeint is a smart contract the check whether it can hold nft or not before transferring, if it cannot transfer will not happen.). But this makes a way for reentrancy attack. Using transferFrom is better if we are not afraid of losing tokens.
+3. renounceOwnership(onlyOwner): remove the ownership, so onlyOwner functions will be useless.
+4. safeMint(onlyOwner): mint to an address
+5. setApprovalForAll(onlyTokenOwner): set an operator for transferring any token which are owned by the caller
+6. trasnferFrom(onlyTokenOwner): same to safetransferfrom. Look safetransferfrom to identify the difference.
+7. transferOwnership(onlyOwner): transfer ownership unless the ownership is renounced.

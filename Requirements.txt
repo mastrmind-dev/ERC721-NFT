@@ -1,0 +1,7 @@
+Assumptions
++ Contract is called by the backend (we don't give any rights to users to deal with contract)
+
+Requirements
+1. nft should be transferable
+2. it can be transferable by itw owner (only owner)
+3. nfts are minted by only contract owner

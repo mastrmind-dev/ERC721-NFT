@@ -1,0 +1,36 @@
+{
+    "description": "Earth Restoration, Life Force, Elzian Agro",
+    "external_url": "https://www.restore.earth",
+    "image": "ipfs://bafkreifjj3jph2zwrst7tz25drj6vucewy2douqcnbiplien2i4gdjkkyy",
+    "name": "LifeForce NFT",
+    "attributes": [
+        {
+            "trait_type": "Purpose",
+            "value": "Environmental Conservation"
+        },
+        {
+            "trait_type": "Oraganization",
+            "value": "Earth Restoration"
+        },
+        {
+            "trait_type": "Powered by",
+            "value": "Elzian Agro"
+        },
+        {
+            "trait_type": "tree",
+            "value": "Sandoricum koetjape"
+        },
+        {
+            "display_type": "boost_number",
+            "trait_type": "Average O2 production after 4 years (L)",
+            "value": 60,
+            "max_value": 80
+        },
+        {
+            "display_type": "level",
+            "trait_type": "photosynthetic biomass after 4 years (g)",
+            "value": 280,
+            "max_value": 300
+        }
+    ]
+}
