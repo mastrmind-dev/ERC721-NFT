@@ -10,7 +10,14 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 /// @custom:security-contact contact@elzian.com
-contract LifeForce is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, Ownable, ERC721Burnable {
+contract LifeForce is
+    ERC721,
+    ERC721Enumerable,
+    ERC721URIStorage,
+    Pausable,
+    Ownable,
+    ERC721Burnable
+{
     using Counters for Counters.Counter;
 
     Counters.Counter private _tokenIdCounter;
@@ -18,7 +25,8 @@ contract LifeForce is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, Owna
     constructor() ERC721("LifeForce", "LIFE") {}
 
     function _baseURI() internal pure override returns (string memory) {
-        return "https://gateway.pinata.cloud/ipfs/Qmc7Ao3pV7gyL3ZcpxDRmAxn6ZNceLqVgSQLxejd45H8kB/";
+        return
+            "https://gateway.pinata.cloud/ipfs/Qmc7Ao3pV7gyL3ZcpxDRmAxn6ZNceLqVgSQLxejd45H8kB/";
     }
 
     function pause() public onlyOwner {
@@ -36,17 +44,29 @@ contract LifeForce is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, Owna
         _setTokenURI(tokenId, uri);
     }
 
-    function _beforeTokenTransfer(address from, address to, uint256 tokenId, uint256 batchSize)
-        internal
-        whenNotPaused
-        override(ERC721, ERC721Enumerable)
-    {
+    function safeTransferFrom(
+        address, /*from*/
+        address to,
+        uint256 tokenId
+    ) public override(IERC721, ERC721) {
+        super.safeTransferFrom(_msgSender(), to, tokenId);
+    }
+
+    function _beforeTokenTransfer(
+        address from,
+        address to,
+        uint256 tokenId,
+        uint256 batchSize
+    ) internal override(ERC721, ERC721Enumerable) whenNotPaused {
         super._beforeTokenTransfer(from, to, tokenId, batchSize);
     }
 
     // The following functions are overrides required by Solidity.
 
-    function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
+    function _burn(uint256 tokenId)
+        internal
+        override(ERC721, ERC721URIStorage)
+    {
         super._burn(tokenId);
     }
 
